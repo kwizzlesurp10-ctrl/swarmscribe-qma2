@@ -1,2 +1,27 @@
-# swarmscribe-qma2
-SwarmScribe · QMA² v2.1 — Vercel-ready prompt vault and agent console. Eight specialist system prompts plus Coordinator, copy-to-runtime, client-side enhancer. Local AI Integrations.
+# SwarmScribe · QMA² v2.1
+
+Static prompt vault and local enhancer for Elite Agent Agency_QMA².
+
+- Nine system prompts: Coordinator + Researcher, Planner, Executor, Analyst, Critic, Protocol Specialist, Writer, Observability Tracer
+- Copy as system prompt for Grok / Claude / Cursor
+- Client-side enhancer — no API keys
+- Vercel static deploy (no build)
+
+## Local
+
+Open `index.html` or:
+
+```bash
+npx serve .
+```
+
+## Vercel
+
+Repo: `kwizzlesurp10-ctrl/swarmscribe-qma2`  
+Framework: Other / static  
+Root: `/`  
+Output: not required
+
+## Operator
+
+Keith Severson · @keithstworld · Local AI Integrations

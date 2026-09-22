@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SwarmScribe · QMA² v2.1</title>
+  <meta name="description" content="Elite Agent Agency QMA² v2.1 prompt vault. Copy specialist system prompts and enhance raw notes locally." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <div class="mark"><span>Q2</span></div>
+        <div class="word">
+          <h1>SwarmScribe</h1>
+          <p>Elite Agent Agency · QMA² v2.1 · Local</p>
+        </div>
+      </div>
+      <div class="gauge-wrap">
+        <div class="gauge" id="gauge" style="--heat:17"><i id="gauge-n">17%</i></div>
+        <small>session heat</small>
+      </div>
+    </header>
+    <nav class="tabs">
+      <button class="tab on" id="tab-vault" type="button">Prompt vault</button>
+      <button class="tab" id="tab-enhance" type="button">Enhancer</button>
+    </nav>
+    <section id="vault">
+      <div class="layout">
+        <aside class="rail" id="rail"></aside>
+        <article class="stage">
+          <div class="stage-head">
+            <div>
+              <h2 id="agent-name">Coordinator</h2>
+              <div class="meta" id="agent-meta"></div>
+            </div>
+            <div class="actions">
+              <button class="btn" id="copy-md" type="button">Copy markdown</button>
+              <button class="btn primary" id="copy-sys" type="button">Copy system prompt</button>
+            </div>
+          </div>
+          <pre class="prompt" id="prompt"></pre>
+        </article>
+      </div>
+    </section>
+    <section class="enhance" id="enhance">
+      <div class="box">
+        <h3>Quick capture</h3>
+        <textarea id="raw" placeholder="One line. Example: researcher agent for Minnesota rental diligence SMBs"></textarea>
+        <div class="row">
+          <button class="btn" id="clear-raw" type="button">Clear</button>
+          <button class="btn primary" id="run-enhance" type="button">Enhance with swarm</button>
+        </div>
+      </div>
+      <div class="box">
+        <h3>Structured output</h3>
+        <textarea id="out" readonly placeholder="Enhanced note / prompt lands here."></textarea>
+        <div class="row">
+          <button class="btn primary" id="copy-out" type="button">Copy output</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
