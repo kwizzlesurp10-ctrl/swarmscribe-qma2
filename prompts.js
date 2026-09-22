@@ -1,3 +1,21 @@
-import { AGENTS_A } from "./agents-a.js";
-import { AGENTS_B } from "./agents-b.js";
-export const AGENTS = [...AGENTS_A, ...AGENTS_B];
+const IDS = [
+  "coordinator",
+  "researcher",
+  "planner",
+  "executor",
+  "analyst",
+  "critic",
+  "protocol",
+  "writer",
+  "tracer"
+];
+
+export async function loadAgents() {
+  return Promise.all(
+    IDS.map(async (id) => {
+      const res = await fetch(`./agents/${id}.json`);
+      if (!res.ok) throw new Error("missing agent " + id);
+      return res.json();
+    })
+  );
+}

@@ -1,4 +1,6 @@
-import { AGENTS } from "./prompts.js";
+import { loadAgents } from "./prompts.js";
+
+const AGENTS = await loadAgents();
 
 const rail = document.getElementById("rail");
 const nameEl = document.getElementById("agent-name");
