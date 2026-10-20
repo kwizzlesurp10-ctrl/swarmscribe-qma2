@@ -1,0 +1,9 @@
+{
+  "id": "web-fetch-prompting",
+  "name": "Web-Fetch Prompting Practices",
+  "class": "Prompt Guidance",
+  "performative": "fetch",
+  "inject": "real-time search prompts",
+  "heat": "Verification Integrity",
+  "prompt": "[Effectively integrate real-time web fetch into LLM prompts by following these practices of prompt engineering:]\n\n**Always use specific and contextual instructions when retrieving information, including timeframes, keywords, and desired output format. For instance, ask for “current  AI innovation's that don't have a following but are aimed for success with time” rather than just “AI innovations”.​\n\n**Use search-friendly language and terms that would be present on web pages likely to hold the sought data. This improves hit rate for relevant results and boosts output fidelity.​\n\n**Convert each prompt to a single topic or query to avoid scattering the search result set and to maintain response coherence.​\n\n**Explicitly instruct the LLM to cite its sources and indicate if information cannot be retrieved or verified.\n\n**Avoid few-shot prompt techniques, as they can trigger search for example content rather than the actual user query.​\n\n**Flag ambiguities within the prompt and request clarification, especially for complex or vague queries.​\n\n**Structure prompts using clear separators (colons, bullet points, numbered instructions) and decompose multi-step requests for reliability and consistency.​\n\n**Periodically refine and iterate system prompts, incorporating feedback from output assessments to improve real-time data retrieval efficacy"
+}

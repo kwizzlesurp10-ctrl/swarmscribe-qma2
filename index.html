@@ -28,7 +28,13 @@
     </nav>
     <section id="vault">
       <div class="layout">
-        <aside class="rail" id="rail"></aside>
+        <aside class="rail-wrap">
+          <label class="rail-search">
+            <span class="sr-only">Filter agents</span>
+            <input type="search" id="rail-search" placeholder="Filter agents…" autocomplete="off" spellcheck="false" />
+          </label>
+          <div class="rail" id="rail"></div>
+        </aside>
         <article class="stage">
           <div class="stage-head">
             <div>

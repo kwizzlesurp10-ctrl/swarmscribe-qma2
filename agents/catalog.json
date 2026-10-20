@@ -1,0 +1,228 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "qma2-core",
+      "label": "QMA\u00b2 Core",
+      "agents": [
+        "coordinator",
+        "researcher",
+        "planner",
+        "executor",
+        "analyst",
+        "critic",
+        "protocol",
+        "writer",
+        "tracer"
+      ]
+    },
+    {
+      "id": "orchestration-swarms",
+      "label": "Orchestration & Swarms",
+      "agents": [
+        "ad-campaign-orchestrator",
+        "architect-prime",
+        "swarmmaster-prime",
+        "megaswarm-v2",
+        "swarm-coordinator",
+        "swarmlite-coordinator",
+        "debateswarm-orchestrator",
+        "hierarchical-supervisor",
+        "fast-hierarchical-supervisor",
+        "strict-hierarchical-orchestrator",
+        "spark-app-orchestrator",
+        "spark-app-supervisor",
+        "elite-agent-agency",
+        "apexforge-studio-orchestrator",
+        "vanguard",
+        "master-agency-architect",
+        "hyperforge-cursor-agent",
+        "antigravity-swarm",
+        "nanoevo-prime",
+        "panda-lich-queen-swarm",
+        "devsecfinops-swarm",
+        "elysium-echo",
+        "universal-workflow-template-builder",
+        "hyperagent-prime",
+        "dgm-hyperagent",
+        "chief-hyperagent",
+        "swarm-prompt-evolution",
+        "musicforge",
+        "multi-stage-evolving-system",
+        "delegation-overlord"
+      ]
+    },
+    {
+      "id": "research",
+      "label": "Research",
+      "agents": [
+        "two-agent-researcher",
+        "nexora-insightweave",
+        "profundus",
+        "profundus-comet",
+        "rogue-prompter",
+        "github-search-engineer",
+        "prof-raj-patel",
+        "repo-strategist",
+        "grad-program-strategist",
+        "seed-to-roots",
+        "seed-to-branch",
+        "nexora-logicloom",
+        "nexora-visualtheorem",
+        "spark-hidden-collective",
+        "two-agent-synthesizer"
+      ]
+    },
+    {
+      "id": "coding-repo",
+      "label": "Coding & Repo",
+      "agents": [
+        "react-agent",
+        "coder-build-spec",
+        "twerpy-linux-app-builder",
+        "nexora-codeforge",
+        "nexora-multiforge",
+        "brok-python-engineer",
+        "fullstack-python-novabuild",
+        "grok-omega-coder",
+        "cursorforge",
+        "nextjs-senior-engineer",
+        "projectforge",
+        "cursor-app-partner",
+        "necromancer-dev",
+        "saamd",
+        "vibe-coder",
+        "cursor-trinity-forge",
+        "github-spark-architect",
+        "max-app-builder-ios",
+        "advanced-agents-scaffold",
+        "aetherweb-elite",
+        "kno-me-p2p-builder",
+        "cursor-uiux-god",
+        "gradio-spaces-rules",
+        "astro-audio-engineer",
+        "cssforge",
+        "repo-agent",
+        "project-control-agent",
+        "github-repo-builder",
+        "eliterepoforge-v2",
+        "github-repo-editor-v2",
+        "databaseforge",
+        "npm-package-architect"
+      ]
+    },
+    {
+      "id": "devops-infrastructure",
+      "label": "DevOps & Infrastructure",
+      "agents": [
+        "nextjs-deploy-agent",
+        "spaceforge",
+        "cursor-gradio-hf-agent",
+        "setup-agent-wsl",
+        "cursor-elite-project-coder",
+        "devopsforge",
+        "transformerprime",
+        "antigravity-dom-browser",
+        "pandaforge-browser-subagent",
+        "androidforge",
+        "panda-lich-forge-plee"
+      ]
+    },
+    {
+      "id": "review-prompt-engineering",
+      "label": "Review & Prompt Engineering",
+      "agents": [
+        "section-enhancement-agent",
+        "prompt-critic-professor",
+        "promptforge-reviewer",
+        "repo-vis-critic",
+        "elysium-codex",
+        "shock-polisher",
+        "clear-prompting-framework",
+        "recursive-prompt-engineer",
+        "web-fetch-prompting",
+        "expert-role-template",
+        "fusionpanda-builder-agents",
+        "promptforge-v4",
+        "grok-prompt-forge",
+        "promptforge-swarm-master",
+        "lovable-prompt-engineer",
+        "sunoforge-elite",
+        "enhanceforge",
+        "execution-first-ai",
+        "cost-aware-rules",
+        "token-optimizer",
+        "nexora"
+      ]
+    },
+    {
+      "id": "assistant-cores",
+      "label": "Assistant Cores",
+      "agents": [
+        "maria-gonzalez",
+        "polymath-collaborator",
+        "humanitys-last-core",
+        "nexora-ethosshield",
+        "nexora-senseshield",
+        "nexora-visualoracle",
+        "nexora-multiweave",
+        "musicologist-annotator"
+      ]
+    },
+    {
+      "id": "business-monetization",
+      "label": "Business & Monetization",
+      "agents": [
+        "indie-sales-dominator",
+        "apexmonetize-swarm",
+        "black-forest-profit-oracle",
+        "gumroad-launcher",
+        "agent-flip-architect",
+        "dr-lena-voss",
+        "max-voss"
+      ]
+    },
+    {
+      "id": "music-audio",
+      "label": "Music & Audio",
+      "agents": [
+        "daw-engineer",
+        "apexforge-audio",
+        "panda-daily",
+        "panda-oracle",
+        "nexora-storyloom",
+        "chrono-cartographer"
+      ]
+    },
+    {
+      "id": "creative-personas-mentors",
+      "label": "Creative Personas & Mentors",
+      "agents": [
+        "unblinking-ensemble",
+        "dual-character-journal",
+        "dual-character-dialogue",
+        "witty-rogue",
+        "curious-explorer",
+        "wise-sage",
+        "loyal-caregiver",
+        "cynical-rebel",
+        "furious-santa",
+        "fusionpanda",
+        "panda-necromancer-repo",
+        "fusionshadow",
+        "panda-lich-queen",
+        "fusionpanda-necromancer",
+        "legend",
+        "paradox-agent-template",
+        "sovereign",
+        "personadom-forge",
+        "nanochat-personality",
+        "principal-agent-engineer-mentor",
+        "dr-elias-voss",
+        "kisg-keith-collab",
+        "writing-assistant",
+        "disaster-relief-coordinator"
+      ]
+    }
+  ]
+}

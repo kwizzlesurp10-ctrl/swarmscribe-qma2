@@ -1,8 +1,11 @@
-import { loadAgents } from "./prompts.js";
+import { loadCatalog, loadAgents } from "./prompts.js";
 
-const AGENTS = await loadAgents();
+const catalog = await loadCatalog();
+const AGENTS = await loadAgents(catalog);
+const agentById = new Map(AGENTS.map((a) => [a.id, a]));
 
 const rail = document.getElementById("rail");
+const railSearch = document.getElementById("rail-search");
 const nameEl = document.getElementById("agent-name");
 const metaEl = document.getElementById("agent-meta");
 const promptEl = document.getElementById("prompt");
@@ -12,6 +15,7 @@ const gaugeN = document.getElementById("gauge-n");
 
 let current = AGENTS[0];
 let heat = 17;
+let filterQuery = "";
 
 function setHeat(n) {
   heat = Math.max(8, Math.min(48, Math.round(n)));
@@ -22,23 +26,76 @@ function setHeat(n) {
 function toastMsg(msg) {
   toast.textContent = msg;
   toast.style.display = "block";
-  setTimeout(() => { toast.style.display = "none"; }, 1800);
+  setTimeout(() => {
+    toast.style.display = "none";
+  }, 1800);
+}
+
+function matchesFilter(agent) {
+  if (!filterQuery) return true;
+  const q = filterQuery.toLowerCase();
+  return (
+    agent.name.toLowerCase().includes(q) ||
+    agent.class.toLowerCase().includes(q) ||
+    agent.id.toLowerCase().includes(q)
+  );
 }
 
 function renderRail() {
   rail.innerHTML = "";
-  AGENTS.forEach((a) => {
-    const b = document.createElement("button");
-    b.className = "agent" + (a.id === current.id ? " on" : "");
-    b.type = "button";
-    b.innerHTML = `<b>${a.name}</b><span>${a.class}</span>`;
-    b.onclick = () => select(a.id);
-    rail.appendChild(b);
-  });
+  const filtering = filterQuery.length > 0;
+
+  for (const cat of catalog.categories) {
+    const agentsInCat = cat.agents
+      .map((id) => agentById.get(id))
+      .filter(Boolean)
+      .filter(matchesFilter);
+
+    if (!agentsInCat.length) continue;
+
+    const section = document.createElement("details");
+    section.className = "rail-group";
+    section.open = filtering || cat.id === "qma2-core";
+
+    const summary = document.createElement("summary");
+    summary.className = "rail-group-head";
+    summary.textContent = `${cat.label} · ${agentsInCat.length}`;
+    section.appendChild(summary);
+
+    const list = document.createElement("div");
+    list.className = "rail-group-list";
+
+    for (const a of agentsInCat) {
+      const b = document.createElement("button");
+      b.className = "agent" + (a.id === current.id ? " on" : "");
+      b.type = "button";
+      b.innerHTML = `<b>${escapeHtml(a.name)}</b><span>${escapeHtml(a.class)}</span>`;
+      b.onclick = () => select(a.id);
+      list.appendChild(b);
+    }
+
+    section.appendChild(list);
+    rail.appendChild(section);
+  }
+
+  if (!rail.children.length) {
+    const empty = document.createElement("p");
+    empty.className = "rail-empty";
+    empty.textContent = "No agents match your search.";
+    rail.appendChild(empty);
+  }
+}
+
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function select(id) {
-  current = AGENTS.find((a) => a.id === id) || AGENTS[0];
+  current = agentById.get(id) || AGENTS[0];
   nameEl.textContent = current.name;
   metaEl.textContent = `${current.class} · ${current.performative} · inject: ${current.inject}`;
   promptEl.textContent = current.prompt;
@@ -97,6 +154,11 @@ Copy the **${role}** system prompt from the vault and paste it as the runtime sy
 **Tags:** #qma2 #swarmscribe #${role.toLowerCase().replace(/\s+/g, "-")}
 **Heat score:** ${heat}%`;
 }
+
+railSearch.addEventListener("input", () => {
+  filterQuery = railSearch.value.trim();
+  renderRail();
+});
 
 document.getElementById("copy-sys").onclick = () => copy(current.prompt, "System prompt copied");
 document.getElementById("copy-md").onclick = () => copy(current.prompt, "Markdown copied");
