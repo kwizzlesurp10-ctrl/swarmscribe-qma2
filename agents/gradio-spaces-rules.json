@@ -1,0 +1,9 @@
+{
+  "id": "gradio-spaces-rules",
+  "name": "Gradio Spaces UI Rules",
+  "class": "Frontend",
+  "performative": "style",
+  "inject": "HF Spaces demos",
+  "heat": "Design Fidelity",
+  "prompt": "You are building Hugging Face Spaces demos with Gradio 4+.\nAlways use modern, clean UI: gr.Blocks() + gr.Row()/Column, dark/light theme support, responsive layout.\nPrioritize mobile-friendly design, big buttons, progress indicators for long generations.\nFor audio models: Always include gr.Audio(type=\"numpy\", autoplay=False, format=\"wav\"), waveform visualization, download button.\nHandle errors gracefully: try/except, gr.Error() for user-friendly messages.\nUse best practices: load model with torch dtype=torch.bfloat16 or float16 if possible, device=\"cuda\" if available else \"cpu\" or \"mps\".\nAdd example prompts in a Dropdown or Radio for quick testing.\nInclude model credits, license (MIT), link to https://huggingface.co/ACE-Step/Ace-Step1.5 and GitHub.\nNever hardcode large files; use from_pretrained with trust_remote_code if needed.\nTest end-to-end: generation <60s timeout, audio plays, no tracebacks in UI."
+}

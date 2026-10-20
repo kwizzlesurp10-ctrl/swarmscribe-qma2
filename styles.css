@@ -98,8 +98,44 @@ button { cursor: pointer; }
 
 .layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: minmax(240px, 280px) 1fr;
   gap: 16px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.rail-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: sticky;
+  top: 12px;
+  height: fit-content;
+  max-height: calc(100vh - 24px);
+}
+
+.rail-search input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: rgba(16, 20, 28, 0.92);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+.rail-search input::placeholder { color: var(--mute); }
+.rail-search input:focus {
+  outline: 1px solid var(--phos-dim);
+  border-color: var(--phos-dim);
 }
 
 .rail {
@@ -107,9 +143,37 @@ button { cursor: pointer; }
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 10px;
-  height: fit-content;
-  position: sticky;
-  top: 12px;
+  overflow: auto;
+  max-height: calc(100vh - 80px);
+}
+
+.rail-group { margin-bottom: 4px; }
+.rail-group:last-child { margin-bottom: 0; }
+.rail-group-head {
+  list-style: none;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mute);
+  padding: 6px 8px 4px;
+  user-select: none;
+}
+.rail-group-head::-webkit-details-marker { display: none; }
+.rail-group-head::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--phos-dim);
+  transition: transform 0.15s ease;
+}
+.rail-group[open] > .rail-group-head::before { transform: rotate(90deg); }
+.rail-group-list { display: flex; flex-direction: column; gap: 2px; }
+.rail-empty {
+  margin: 8px;
+  font-size: 12px;
+  color: var(--mute);
 }
 
 .agent {
@@ -205,6 +269,7 @@ textarea {
 
 @media (max-width: 900px) {
   .layout, .enhance.on { grid-template-columns: 1fr; }
-  .rail { position: static; display: grid; grid-template-columns: 1fr 1fr; }
+  .rail-wrap { position: static; max-height: none; }
+  .rail { max-height: none; display: grid; grid-template-columns: 1fr 1fr; }
   .word h1 { font-size: 22px; }
 }
