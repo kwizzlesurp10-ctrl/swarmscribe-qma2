@@ -69,6 +69,7 @@ function renderRail() {
       const b = document.createElement("button");
       b.className = "agent" + (a.id === current.id ? " on" : "");
       b.type = "button";
+      b.dataset.agentId = a.id;
       b.innerHTML = `<b>${escapeHtml(a.name)}</b><span>${escapeHtml(a.class)}</span>`;
       b.onclick = () => select(a.id);
       list.appendChild(b);
@@ -99,7 +100,9 @@ function select(id) {
   nameEl.textContent = current.name;
   metaEl.textContent = `${current.class} · ${current.performative} · inject: ${current.inject}`;
   promptEl.textContent = current.prompt;
-  renderRail();
+  rail.querySelectorAll(".agent").forEach((btn) => {
+    btn.classList.toggle("on", btn.dataset.agentId === current.id);
+  });
 }
 
 async function copy(text, label) {
