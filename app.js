@@ -751,6 +751,14 @@ document.getElementById("fusion-refine").onclick = async () => {
       toastMsg("AI refine not configured (local fusion only)");
       return;
     }
+    if (res.status === 429) {
+      toastMsg("Refine rate limit — try again in a minute");
+      return;
+    }
+    if (res.status === 413) {
+      toastMsg("Fusion too large to refine");
+      return;
+    }
     if (!res.ok) {
       toastMsg("Refine failed — keeping local fusion");
       return;
