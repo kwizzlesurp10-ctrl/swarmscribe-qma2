@@ -1,0 +1,28 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "Static prompt vault and local enhancer for Elite Agent Agency_QMA².",
+  "main": "app.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:visual": "playwright test tests/visual.spec.mjs",
+    "test:fusion": "playwright test tests/fusion.spec.mjs",
+    "test:unit": "node --test tests/fusion.unit.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwizzlesurp10-ctrl/swarmscribe-qma2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/kwizzlesurp10-ctrl/swarmscribe-qma2/issues"
+  },
+  "homepage": "https://github.com/kwizzlesurp10-ctrl/swarmscribe-qma2#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "playwright": "^1.64.1"
+  }
+}
