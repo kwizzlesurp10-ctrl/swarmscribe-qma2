@@ -49,7 +49,21 @@
         "swarm-prompt-evolution",
         "musicforge",
         "multi-stage-evolving-system",
-        "delegation-overlord"
+        "delegation-overlord",
+        "agency-architect-v1",
+        "swarmmaster",
+        "agent-agency",
+        "architect-prime-dynamic",
+        "x402-principal-a2a",
+        "cognitive-twin-farm-architect",
+        "thread-to-instructions-orchestrator",
+        "elite-agent-agency-qma2-v2",
+        "grand-master-architect",
+        "grok-connector-orchestrator-v21",
+        "groktask-architect",
+        "mcp-forge-conductor",
+        "a2a-sovereign-peer-agent",
+        "principal-agentic-systems-architect"
       ]
     },
     {
@@ -70,7 +84,16 @@
         "nexora-logicloom",
         "nexora-visualtheorem",
         "spark-hidden-collective",
-        "two-agent-synthesizer"
+        "two-agent-synthesizer",
+        "extra-depth-research-agent",
+        "hiphop-panda-research",
+        "researchforge-mythic",
+        "profundus-v1-1",
+        "elite-browser-research",
+        "skill-forge-scout",
+        "research-agency-orchestrator",
+        "grantforge-swarm",
+        "hybrid-profundus-qma2-research"
       ]
     },
     {
@@ -108,7 +131,21 @@
         "eliterepoforge-v2",
         "github-repo-editor-v2",
         "databaseforge",
-        "npm-package-architect"
+        "npm-package-architect",
+        "cursor-ide-project-forge",
+        "cursor-ide-mobile-forge",
+        "grok-omega-cursor",
+        "api-integration-engineer",
+        "aetherweb-elite-v5",
+        "youtubeforge-transcriber",
+        "vibeweave-repo-sentinel",
+        "karpathy-guided-coding-agent",
+        "product-requirements-architect",
+        "docs-oracle",
+        "fusion-alchemist",
+        "self-improving-dev-agent",
+        "grok-connector-architect",
+        "aetherforge-developer"
       ]
     },
     {
@@ -125,7 +162,11 @@
         "antigravity-dom-browser",
         "pandaforge-browser-subagent",
         "androidforge",
-        "panda-lich-forge-plee"
+        "panda-lich-forge-plee",
+        "capital-efficient-deployer",
+        "grok-cli-master-orchestrator",
+        "gcloud-sovereign",
+        "ollamaforge"
       ]
     },
     {
@@ -152,7 +193,13 @@
         "execution-first-ai",
         "cost-aware-rules",
         "token-optimizer",
-        "nexora"
+        "nexora",
+        "promptforge-v3-5",
+        "landing-page-prompt-forge",
+        "super-prompt-generator",
+        "grok-automation-daily-prompt-generator",
+        "skill-forge",
+        "promptforge-vision"
       ]
     },
     {
@@ -166,7 +213,8 @@
         "nexora-senseshield",
         "nexora-visualoracle",
         "nexora-multiweave",
-        "musicologist-annotator"
+        "musicologist-annotator",
+        "holy-spirit-agent"
       ]
     },
     {
@@ -179,7 +227,19 @@
         "gumroad-launcher",
         "agent-flip-architect",
         "dr-lena-voss",
-        "max-voss"
+        "max-voss",
+        "indie-sales-dominator-memory",
+        "indie-sales-dominator-json",
+        "digital-product-forge",
+        "apexseo-elite",
+        "x402-profit-forge",
+        "grok-funds-finder",
+        "provenance-recovery-agency",
+        "x402-scout-elite",
+        "repo-profit-oracle",
+        "pricingforge-agency",
+        "gumroad-antigravity-specialist",
+        "craigslist-posting-agent"
       ]
     },
     {
@@ -191,7 +251,13 @@
         "panda-daily",
         "panda-oracle",
         "nexora-storyloom",
-        "chrono-cartographer"
+        "chrono-cartographer",
+        "shadow-engineer",
+        "lyricist-agent",
+        "undocumented-court",
+        "suno-architect-agent",
+        "vareth-silent-court",
+        "suno-v6-limit"
       ]
     },
     {
@@ -221,7 +287,12 @@
         "dr-elias-voss",
         "kisg-keith-collab",
         "writing-assistant",
-        "disaster-relief-coordinator"
+        "disaster-relief-coordinator",
+        "panda-fashion-stylist",
+        "sovereign-idea-forge",
+        "genie-3-game-creator",
+        "voice-agent-forge-architect",
+        "personascene-composer"
       ]
     }
   ]
