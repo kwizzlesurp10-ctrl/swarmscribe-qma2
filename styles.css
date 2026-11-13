@@ -45,6 +45,7 @@
 html, body { margin: 0; min-height: 100%; background: var(--ink); color: var(--text); }
 body {
   font-family: "IBM Plex Sans", system-ui, sans-serif;
+  position: relative;
   background-image:
     linear-gradient(180deg, color-mix(in srgb, var(--phos) 4%, transparent), transparent 28%),
     radial-gradient(circle at 80% -10%, color-mix(in srgb, var(--violet) 16%, transparent), transparent 42%),
@@ -52,6 +53,28 @@ body {
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
   background-size: auto, auto, 48px 48px, 48px 48px;
   background-position: 0 0, 0 0, -1px -1px, -1px -1px;
+}
+
+/* Ambient swarm field — behind UI, never captures pointer */
+.swarm-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.swarm-particles.is-off,
+.swarm-particles[hidden] {
+  display: none;
+}
+.swarm-particles canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swarm-particles { display: none !important; }
 }
 
 button, textarea { font: inherit; }
@@ -73,6 +96,8 @@ button { cursor: pointer; }
 }
 
 .app {
+  position: relative;
+  z-index: 1;
   max-width: 1280px;
   margin: 0 auto;
   padding: 20px 16px 64px;

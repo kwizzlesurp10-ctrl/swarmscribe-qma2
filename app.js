@@ -10,6 +10,7 @@ import { highlightHtml, renderMarkdown } from "./lib/markdown.js";
 import { createZip, downloadBytes } from "./lib/zip.js";
 import { fuseAgents, pickChaosPair, pickSmartPartner } from "./lib/fusion.js";
 import { addFusion, loadFusions, removeFusion } from "./lib/fusions-store.js";
+import { startSwarmParticles } from "./lib/swarm-particles.js";
 
 const catalog = await loadCatalog();
 const ALL_IDS = allAgentIds(catalog);
@@ -502,6 +503,10 @@ document.addEventListener("keydown", (e) => {
     toggleTheme();
   }
 
+  if (e.key === "p" && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) {
+    toggleParticles();
+  }
+
   if (e.key === "Escape" && document.activeElement === railSearch) {
     railSearch.value = "";
     filterQuery = "";
@@ -789,6 +794,7 @@ document.getElementById("copy-out").onclick = () => {
 };
 
 document.getElementById("theme-toggle").onclick = () => toggleTheme();
+document.getElementById("particles-toggle").onclick = () => toggleParticles();
 document.getElementById("export-json").onclick = () => void exportVaultJson();
 document.getElementById("export-zip").onclick = () => void exportVaultZip();
 
@@ -821,6 +827,67 @@ const initialId = parseAgentHash() || "coordinator";
 await prefetchAgents(catalog.categories.find((c) => c.id === "qma2-core")?.agents || [initialId]);
 await select(initialId, { updateHash: !parseAgentHash() });
 setHeat(17);
+
+/** @type {{ setEnabled:(on:boolean)=>void, isEnabled:()=>boolean, burst:(x:number,y:number,n?:number)=>void, destroy:()=>void } | null} */
+let swarmFx = null;
+
+function waitForP5(timeoutMs = 8000) {
+  return new Promise((resolve) => {
+    if (typeof p5 !== "undefined") {
+      resolve(true);
+      return;
+    }
+    const t0 = performance.now();
+    const id = setInterval(() => {
+      if (typeof p5 !== "undefined") {
+        clearInterval(id);
+        resolve(true);
+      } else if (performance.now() - t0 > timeoutMs) {
+        clearInterval(id);
+        resolve(false);
+      }
+    }, 40);
+  });
+}
+
+function syncParticlesToggle() {
+  const btn = document.getElementById("particles-toggle");
+  if (!btn || !swarmFx) return;
+  const on = swarmFx.isEnabled();
+  btn.setAttribute("aria-pressed", on ? "true" : "false");
+  btn.title = on ? "Particles on (P)" : "Particles off (P)";
+  btn.classList.toggle("on", on);
+}
+
+function toggleParticles() {
+  if (!swarmFx) {
+    toastMsg("Particles unavailable");
+    return;
+  }
+  const next = !swarmFx.isEnabled();
+  swarmFx.setEnabled(next);
+  syncParticlesToggle();
+  toastMsg(next ? "Swarm particles on" : "Swarm particles off");
+}
+
+function bootParticles() {
+  swarmFx = startSwarmParticles({
+    mount: document.getElementById("swarm-particles"),
+    getHeat: () => heat,
+  });
+  syncParticlesToggle();
+  // Celebrate successful vault load with a soft burst near the brand mark
+  const mark = document.querySelector(".mark");
+  if (mark && swarmFx?.isEnabled()) {
+    const r = mark.getBoundingClientRect();
+    swarmFx.burst(r.left + r.width / 2, r.top + r.height / 2, 22);
+  }
+}
+
+void waitForP5().then((ok) => {
+  if (ok) bootParticles();
+  else console.warn("[SwarmScribe] p5.js did not load — particles skipped");
+});
 
 const idlePrefetch = () => void prefetchAgents(ALL_IDS, 6);
 if ("requestIdleCallback" in window) {
